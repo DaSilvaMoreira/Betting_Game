@@ -5,6 +5,7 @@ A realizes that if one thinks of Heads as +1 and Tails as −1, then for each k 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{i&space;=&space;1}^k&space;a_i&space;\geq&space;0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{i&space;=&space;1}^k&space;a_i&space;\geq&space;0" title="\sum_{i = 1}^k a_i \geq 0" /></a>
 
 Furthermore,
+
 <a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{i&space;=&space;1}^{100}&space;a_i&space;=&space;0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{i&space;=&space;1}^{100}&space;a_i&space;=&space;0" title="\sum_{i = 1}^{100} a_i = 0" /></a> 
 
 Player B thinks such a sequence is extremely unlikely and offers
