@@ -1,0 +1,260 @@
+\documentclass[a4paper,12pt,oneside]{article}
+ \usepackage[latin1]{inputenc}
+ \usepackage[T1]{fontenc}
+ \usepackage[english]{babel}
+ \usepackage{amssymb}
+ \usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\begin{document}
+ 
+\begin{titlepage}
+\begin{center}
+\vspace{10cm}
+\hspace{0.5cm}
+\newline
+\Huge{\textbf{Betting on Catalan numbers}}
+\vspace{1cm}
+\newline 
+\Large{\hspace{-2cm} Dylan Da Silva Moreira \hspace{3cm} Hukic Ibrahim}
+\vspace{1cm}
+\newline
+\hspace{4cm} 10 Novembre 2019
+\vspace{\fill}
+
+\hspace{3cm}
+\newline
+University of Luxembourg
+\vspace{0.5cm}
+\newline
+Academic year 2019-2020 (Winter Semestre)
+\end{center}
+\end{titlepage}
+\newpage
+ \tableofcontents{}
+\newpage
+\section{Introduction to the task}
+We got the following task at the beginning of the project:
+
+\vspace{1cm}
+A fair coin is flipped 100 times yielding a sequence $a=(a_{1},...,a_{100})$ of Heads or Tails. Player $A$ realizes that if one thinks of Heads as $+1$ and Tails as $-1$, then for each $k$ $\in$ $[1,100]$,
+\begin{center}
+$\sum_{i=1}^{k}a_{i}\geq0$
+\end{center}
+Furthermore $\sum_{100}^{i=1}a_{i}=0$. Player $B$ thinks such a sequence is extremely unlikely and offers a bet to $A$ with a $100:1$ odds that if they flip the coin again 100 times yielding a random sequence $x=(x_{1},...,x_{100})$, then $x$ is not going to satisfy the properties of $a$. Should A accept the bet? \\What are the true odds for such an event? Is there a good graphical representation for the properties of $a$?\\What if there are $2n$ coin flips? Biased coin?
+\vspace{0.5cm}
+\\
+To get the solution of this task, we must get closer to the expression of the catalan numbers, how we did this will be discuss in the following.
+\vspace{0.5cm}
+\\
+After this we wrote an informatical programms to see how many times we need to compute such a sequence to come close as possible to the probability of $\sum_{i=1}^{k}a_{i}\geq0$ given from thr Catalan numbers formula, this could be seen as the experimental goal.
+\\
+(Every reader is welcome to copie the programm and to try it by himself)
+\\
+We worked out the case, when the probability between -1 and +1 is not equal.
+\newpage
+\section{Logistical tools}
+We used the following programs:
+\vspace{0,5cm}
+\begin{itemize}
+  \item Mathsage
+	\item Latex
+\end{itemize}
+\vspace{2cm}
+\section{Mathematical tools}
+We used the following mathematical approach
+\vspace{0,5cm} 
+\begin{itemize}  
+  \item Numeration
+  \item Fundamental Probability 
+  \item Catalan Numbers
+ \end{itemize}
+\newpage
+\section{First reflection}
+\vspace{0,5cm}
+\subsection{The first Observation}
+By considerating of  our sum of sequences: $\sum_{i=1}^{k}a_{i}\geq0$ there is an important reflection to do. \vspace{0.3cm}\\At first it is importatnt to remark that the evenements are not independant from each other, which means that $a_{n}$ depends on  $\sum_{i=1}^{n-1}a_{i}$ for every $n$, such that $0<n\leq k$, because in the case where $\sum_{i=1}^{n-1}a_{i}=0$ we need that the next sequence is equal to $1$, indeed $a_{n}=1$. In the other case, our sum would not hold any more. 
+\vspace{0.3cm}\\In the Following, we will use fondamental probability to approach the probability of our sum, this means we will take the number of favorable cases for us and divide it by the number of the total possible cases. We denote by $P_{fav}$ the probability that our sum holds. 
+\vspace{0.3cm}
+\begin{center}
+$P_{fav}=\frac{\textrm{all the cases where the sum holds}}{\textrm{total of all possible cases}}$
+\end{center}
+\vspace{0.3cm}
+This we will do for an arbitrary length of the sequence $l$ and $n$-times, which will gives us a approximation of the probability.\\ To  do this as precise as possible, we will write a code at the Software "SageMath". 
+\newpage
+\subsection{Approaching to the probability}
+As above indicated we will now give you the code we write to generate $n$ sequences with a length $l$ and which will gives us a approximation of the probability we search.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.8]{Code1}
+\caption{First part of the code we writen in SageMath }
+\end{figure}
+\\Now we will give a little description of the code for better understanding.\\As we can see from the Figure1 the length of the sequence is arbitraring fixed and equal to $10$, which can be changed for an other number,if the reader want.
+In this part of the code, we write two functions verify and prob. The first one "verify" schould  test if the sum of the sequnces are equal  to $0$ an if the partial sum of the considering sequence is equal to $0$.\\ The second function "prob" should compute and count the verified sequnces, which will gives us the probability of all the sequnces for which $\sum_{i=1}^{k}a_{i}\geq0$ holds using fundamental probability.
+\\We declared a variable $n$ which indicates the number of repetitions, we do the experiment.
+\\As a next step we will give a graphical representation of thus probabilities.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.9]{Pointsforgraph}
+\caption{A part of the code}
+\end{figure}
+\vspace{0.3cm}\\This part gives us the number of repetition of the experiment and the corresponding probability, which will us allow to give a graphical representation. In our case it will be 2000 points, because we took $n=2000$
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{Visual}
+\caption{Graphical representation, X-axis gives the number of repetition and Y-axis gives the corresponding probability }
+\end{figure}
+\vspace{0.3cm}\\By observing the graphical representation of the probabilities, we can see that the probabilities converges to the red line.
+\\Hence, we can assume that for sufficiently often repetition the probability will get closer and closer to the red line, which is the Catalan number for the choosen length of the sequence. At the next step we will prove that the Catalan number formula gives us the probability we searched.
+\newpage
+\section{Preparation for the Proof}
+\vspace{0.3cm}
+\subsection{Reformulation of our task}
+Our task is defined as following; we have a sequence $a=(a_{1},...,a_{k})$ of ${-1}$ or ${-1}$ such that for every $k\in\mathbb{N}$ we have : 
+\begin{center}
+$\sum_{i=1}^{k}a_{i}\geq0$
+\end{center}
+Furthermore, we consider: $\sum_{i=1}^{k}a_{i}=0$.
+\\Now we will reformulate by reintepretating $\{-1\}$ and $\{1\}$ into two different mouvements, we can take up steps and right steps, instead of \{-1,1\}.\\This means for every $n\in\mathbb{N}$ such that if $a_{n}={-1}$ we replaced $-1$ by one up step and if $a_{n}={1}$ is replaced by one right step.
+\\So the sum; $\sum_{i=1}^{k}a_{i}$, can be interpret as sequnce of consecutive up and right steps, which means that the  $\sum_{i=1}^{k}a_{i}$ is equal to zero if the up and right steps get the point $(k,k)$, which would implies that there are the same number of up steps as of right steps.
+For a better understanding we of the reintepretation, we did this following visualization.
+\begin{figure}[h]
+\centering
+    \subfigure[$\sum_{i=1}^{4}a_{i}=1-1+1+1$]{\includegraphics[width=0.40\textwidth]{sum1}}\hspace{0.3cm}
+    \subfigure[$\sum_{i=1}^{6}a_{i}=1-1+1-1+1-1$]{\includegraphics[width=0.40\textwidth]{sum2}}
+\caption{$(a)$ and $(b)$ shows our sequnce from the begining in the new intepretation}
+\end{figure}
+\newpage
+\subsection{The number of all the paths}
+We will now prove a stetement which is later used. As we can se by observation on the Figure 4, there are more than one path to get to the point $(n,n)$, for all $n\in\mathbb{N^*}$. An example will be given by the following visualization.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.40\textwidth]{sum3}
+\caption{$\sum_{i=1}^{6}a_{i}=1-1+1+1-1-1$ and $\sum_{i=1}^{6}b_{i}=-1+1-1-1+1+1$}
+\end{figure}
+\vspace{0.3cm}\\ From this representation we can see that the sum of the two sequences are equal but they describe two different paths.\\At this point, we want to show that the following expression:
+\begin{centering}
+ $\binom{2n}{n}$
+\end{centering}
+\vspace{0.3cm}\\ Gives us the number of paths who reach the point $(n,n)$
+Now we will prove this statement by induction.
+
+\begin{proof}
+We have to show that $\binom{2n}{n}$ gives us all the paths to reach the point $(n,n)$.\vspace{0.3cm}\\
+\underline{Initialization:}
+\\ For n:=1, we have exactly 2 paths to get from (0,0)  to (1,1).
+\\ More precise, 
+\begin{center}
+the frist path could be: one step right and the next one one step up, 
+\\the second path is than: one tep up and one right.
+\end{center}
+\vspace{0.3cm}
+Verify for  $\binom{2n}{n}$, so we have  $\binom{2*1}{1}=\frac{2!}{(2-1)!\,1!}=\frac{2}{1}=2$\
+\vspace{0.3cm} \\ So the assertion is true for n=1
+\vspace{0.2cm}\\
+\underline{Now by induction:}
+\vspace {0.1cm}\\ We will now suppose that the assertion is true for some $n\in\mathbb{N^*}$ and we will prove that it holds for any $n+1$ \\If we get $\binom{2(n+1)}{n+1}$ as a linear combination of $\binom{2n}{n}$, we have prove that the assertion is true for $n+1$.\vspace{0.3cm}\\
+Now let us compute:\vspace{0.2cm}\\
+\begin{center}
+ $\binom{2(n+1)}{n+1}=\frac{(2(n+1)!}{(2(n+1)-(n+1))!\,(n+1)!}
+=\frac{(2(n+1))!}{(n+1)!(n+1)!}=\frac{2n!}{n!n!}\frac{(2n+1)(2n+2)}{(n+1)(n+1)}$\\$=\frac{2n!}{n!n!}\frac{2n+2+4n^2+4n}{n^2+2n+1}=\frac{2n!}{n!n!}\frac{2(2n^2+3n+1)}{n^2+2n+1}=\frac{2n!}{n!n!}\frac{2(n+1)(n+\frac{1}{2})}{(n+1)^2}=\frac{2n!}{n!n!}\frac{2(n+\frac{1}{2})}{n+1}=\frac{2n!}{n!n!}\frac{2n+1}{n+1}=\binom{2n}{n}(\frac{n}{n+1}+\frac{n+1}{n+1})=\binom{2n}{n}(\frac{n}{n+1}+1)=\frac{n}{n+1}\binom{2n}{n}+\binom{2n}{n}$\
+\end{center}
+\vspace{0.3cm}
+Hence,$\binom{2(n+1)}{n+1}$ is a linear combination of $\binom{2n}{n}$,so we get what we wanted and we have proven that that the assertion holds for every $n\in\mathbb{N^*}$.
+\end{proof}
+\vspace{0.3cm}As we have shown that $\binom{2n}{n}$ gives us all the number of paths which reach the point $(n,n)$, we are allowed to use it in the following.
+
+\newpage
+\section{The theoretically approach of the Catalan numbers}
+\vspace{0.5cm}
+We will prove that we are allowed to use the Catalan numbers formula for our task.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{Graphik}
+\caption{Represenation}
+\end{figure}
+\\
+We will use the reformulation we defined in the subsection $5.1$, indeed our $\{-1,1\}$ randome sequence are replaced by right and up mouvement, where $-1$ represents an up step an $+1$ a right step. The solution to our coin flip problem are all the paths that end on the line $f(x)=x$.
+\\
+Hence on the point $(n,n)$  (sum equals zero) and do not cross the line ,given by the function f(x)=x, at any given moment (sum is always positive).\\
+The number of possibility satisfying this conditions are equal to : \\
+\begin{center}
+ $\binom{2n}{n}$-$\binom{2n}{n+1}$
+\end{center}
+The proof will be given as next step.
+\newpage
+
+\begin{proof}
+At the first step, we will show that the number of paths, who satisfy to end at the point $(n,n)$, is equal to $\binom{2n}{n}$, which means that $\binom{2n}{n}$ gives us all the paths even this which we do not want.
+\\
+This we will prove by induction.
+
+Now one must only substract the number of  '' bad paths '', paths which cross the line.
+\\
+To find out the number of bad paths we will flip the position at the path after it has crossed the line for the first time.
+\\
+By fliping one means interchanging all up and right steps.
+\\
+
+By observation, we find out that every bad path like that will end at the point ($n-1$,$n+1$), this follows because, we interchange all up and right steps after the path has crossed the line, by doing this we underline the fact that the path crossed the line ones and do not follows the rule we defined. By this procedure, we get that there will be one up step more and by the reason that we still have $2n$ steps, which means that we in end effect have $n-1$ right steps and $n+1$ up steps. This explains why the bad paths end at the point ($n-1,n+1$) using this methode.
+\vspace{0,3cm}
+\\Since the flipping process is reversible, there is a bijective relation between paths ending on ($n,n$) and ($n-1,n+1$).
+\vspace{0,3cm}
+\\Hence the number of bad paths are given by the permutation of our ($n+1$) up steps for a total of $2n(=n+1+n-1)$ steps.
+\vspace{0,3cm}
+\\The number op bad paths is given by:
+\begin{center}
+$\binom{n+1+n-1}{n+1}$=$\binom{2n}{n+1}$=$\binom{2n}{n-1}$
+\end{center}
+By substracting this number from all the possible paths we get:
+\begin{center}
+$\binom{2n}{n}-\binom{2n}{n+1}$=$\binom{2n}{n}-\binom{2n}{n-1}$ 
+\end{center}
+Now we will compute our relation to get a more simple result:
+\begin{center}
+$\binom{2n}{n}-\binom{2n}{n-1}$=$\frac{2n!}{n!n!}-\frac{2n!}{(n+1)!(n-1)!}$=$2n!(\frac{1}{n!n!}-\frac{1}{(n+1)!(n-1)!})$=$2n!(\frac{1}{n(n-1)!n!}-\frac{1}{(n+1)n!(n-1)!})$=$2n!(\frac{n+1}{(n+1)n(n-1)!n!}-\frac{n}{(n+1)n(n-1)!n!})$=$\frac{2n!}{(n+1)n(n-1)!n!}$=$\binom{2n}{n}\frac{1}{n+1}$
+\end{center}
+\vspace{0.2cm}
+This finishs our proof
+\end{proof}
+\vspace{0.3cm}
+From now on we are allowed to use the Catalan number formula to solve our task.
+\newpage 
+\underline{Catalan numbers formula:}
+\vspace{0.3cm}\\
+We will give here the Catalan numbers formula, the Catalan numbers form a sequence of natural numbers that occur in various counting problems, often involving recursively-defined objects. The n-th Catalan number is given directly in terms of binomial coefficients by:
+\begin{center}
+$C_{n}=\frac{1}{n+1}\binom{2n}{n}=\frac{(2n)!}{(n+1)!n!}=\prod_{k=2}^n\frac{n+k}{k}$\hspace{0.4cm} \textrm{for all} $n\geq0$
+\end{center}
+\vspace{0.3cm}
+This formula we will use to solve our task.
+\newpage
+\section{Return to the main task}
+\vspace{0.3cm}
+To solve our task we need to calculate the probability of  $\sum^{100}_{i=1}a_{i}=0$ using the Catalan numbers, we denotes $P_{a}$ this probability.
+\\In this case, the corresponding Catalan number is, with $n=50$, : $\frac{1}{50+1}\binom{100}{50}$.
+\begin{center}
+$P_{a}=\frac{\frac{1}{50+1}\binom{100}{50}}{2^{50}}=0,04102$
+\end{center} 
+To conclude if the player A should accept the bet, we need to calculate the expectation $E(X)$. 
+\\We define $S:="\textrm{the probaility that the sum is equal to 0}"=P_{a}$ and \\ $F:=1-S$  
+\begin{table}[h]
+\centering
+\begin{tabular}{|  l | c | r | }
+\hline
+Gain & 100 & -1\\ \hline
+X & 0,04102 & 0,95898\\ \hline
+\end{tabular}
+\end{table}
+\\Now we can calculate the expectation
+\begin{center}
+ $E(X):=100S-1F\simeq3,14$
+\end{center}
+Hence the game is favorable for the player A, but this is only the case because he can win 100 if he win only ones and from our probabilit, we know that in average he will win 4 times if he plays the game 100 times.
+
+
+\end{document}
+
+
