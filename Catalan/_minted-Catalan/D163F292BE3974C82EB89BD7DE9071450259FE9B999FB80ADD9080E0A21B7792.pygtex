@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{pdflatex} \PYG{o}{\PYGZhy{}}\PYG{n}{synctex}\PYG{o}{=}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}}\PYG{n}{interaction}\PYG{o}{=}\PYG{n}{nonstopmode} \PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{shell}\PYG{o}{\PYGZhy{}}\PYG{n}{escape} \PYG{p}{\PYGZbs{}}\PYG{o}{\PYGZpc{}.}\PYG{n}{tex}
+\end{Verbatim}

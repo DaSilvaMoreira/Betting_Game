@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{verify}\PYG{p}{(}\PYG{n}{s}\PYG{p}{):}
+  \PYG{k}{if} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{s}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+     \PYG{n}{partial} \PYG{o}{=} \PYG{l+m+mi}{0}
+     \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{s}\PYG{p}{:}
+         \PYG{n}{partial} \PYG{o}{=} \PYG{n}{partial} \PYG{o}{+} \PYG{n}{i}
+         \PYG{k}{if} \PYG{n}{partial} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{0}\PYG{p}{:}
+            \PYG{k}{return} \PYG{k+kc}{False}
+     \PYG{k}{return} \PYG{k+kc}{True}
+   \PYG{k}{return} \PYG{k+kc}{False}
+
+
+\PYG{k}{def} \PYG{n+nf}{prob}\PYG{p}{(}\PYG{n}{n}\PYG{p}{):}
+    \PYG{n}{count} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{for} \PYG{n}{\PYGZus{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{n}\PYG{p}{):}
+        \PYG{n}{seq} \PYG{o}{=} \PYG{p}{[}\PYG{n}{random}\PYG{o}{.}\PYG{n}{choice}\PYG{p}{([}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{])} \PYG{k}{for} \PYG{n}{\PYGZus{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{l}\PYG{p}{)]}
+        \PYG{k}{if} \PYG{n}{verify}\PYG{p}{(}\PYG{n}{seq}\PYG{p}{):}
+           \PYG{n}{count} \PYG{o}{+=} \PYG{l+m+mi}{1}
+    \PYG{k}{return} \PYG{n}{count}\PYG{o}{/}\PYG{n}{n}
+	
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{o}{[}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{o}{]}
+	\PYG{o}{[}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{o}{]}
+	\PYG{n}{designs} \PYG{n}{the} \PYG{n}{transition} \PYG{n}{matrix}
+	\PYG{o}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{o}{]}
+	\PYG{o}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{o}{]}
+	\PYG{n}{designs} \PYG{n}{the} \PYG{n}{emission} \PYG{n}{matrix}
+	\PYG{o}{[}\PYG{l+m+mi}{0}\PYG{o}{.}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{o}{.}\PYG{l+m+mi}{5}\PYG{o}{]} \PYG{n}{is} \PYG{n}{the} \PYG{n}{initial} \PYG{n}{probabilty} \PYG{n}{condition} \PYG{o+ow}{and} \PYG{o}{[\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{o}{]} \PYG{n}{are} \PYG{n}{the} \PYG{n}{respective} \PYG{n}{outcomes}
+\end{Verbatim}

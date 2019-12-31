@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{prob\PYGZus{}markov}\PYG{p}{(}\PYG{n}{n}\PYG{p}{):}
+	\PYG{n}{count} \PYG{o}{=} \PYG{l+m+mi}{0}
+	\PYG{k}{for} \PYG{n}{\PYGZus{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{n}\PYG{p}{):}
+	  \PYG{n}{seq} \PYG{o}{=} \PYG{n}{a}\PYG{o}{.}\PYG{n}{sample}\PYG{p}{(}\PYG{n}{l}\PYG{p}{)}
+	  \PYG{k}{if} \PYG{n}{verify}\PYG{p}{(}\PYG{n}{seq}\PYG{p}{):}
+	    \PYG{n}{count} \PYG{o}{+=} \PYG{l+m+mi}{1}
+	
+	\PYG{k}{return} \PYG{n}{count}\PYG{o}{/}\PYG{n}{n}
+\end{Verbatim}
